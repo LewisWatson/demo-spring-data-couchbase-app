@@ -8,12 +8,10 @@ import com.couchbase.client.java.repository.annotation.Field;
 import com.couchbase.client.java.repository.annotation.Id;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
-import lombok.Data;
 import lombok.Value;
 import lombok.experimental.Wither;
 
-//@Value
-@Data
+@Value
 @AllArgsConstructor
 @Builder(toBuilder=true)
 @Document
