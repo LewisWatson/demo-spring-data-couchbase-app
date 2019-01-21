@@ -27,3 +27,15 @@ dependencies {
 	compileOnly 'org.projectlombok:lombok'
 	testImplementation 'org.springframework.boot:spring-boot-starter-test'
 }
+
+test {
+    useJUnit {
+        excludeCategories 'com.example.demospringdatacouchbaseapp.IntegrationTest'
+    }
+}
+
+task integrationTest(type: Test) {
+    useJUnit {
+        includeCategories 'com.example.demospringdatacouchbaseapp.IntegrationTest'
+    }
+}

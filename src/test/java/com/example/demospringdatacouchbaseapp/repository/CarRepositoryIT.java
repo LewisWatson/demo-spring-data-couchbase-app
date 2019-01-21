@@ -4,25 +4,28 @@ import static org.assertj.core.api.Assertions.assertThat;
 import java.util.Arrays;
 import java.util.Collection;
 import java.util.Optional;
-import org.junit.Ignore;
+import com.example.demospringdatacouchbaseapp.IntegrationTest;
+import com.example.demospringdatacouchbaseapp.model.Car;
+import org.junit.Before;
 import org.junit.Test;
+import org.junit.experimental.categories.Category;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
-import com.example.demospringdatacouchbaseapp.model.Car;
 
 @RunWith(SpringRunner.class)
 @SpringBootTest
+@Category(IntegrationTest.class)
 public class CarRepositoryIT {
 
   @Autowired
   private CarRepository repository;
 
-  // @Before
-  // public void clearDatabase() {
-  // repository.deleteAll();
-  // }
+  @Before
+  public void clearDatabase() {
+    repository.deleteAll();
+  }
 
   @Test
   public void createSingCarTest() {
@@ -48,7 +51,6 @@ public class CarRepositoryIT {
   }
 
   @Test
-  @Ignore("entities are not coming back with generated ID's. Wither not working?")
   public void createCollectionOfCarsTest() {
 
     /*
@@ -105,7 +107,6 @@ public class CarRepositoryIT {
   }
 
   @Test
-  @Ignore("fails due to missing all view")
   public void findAllTest() {
 
     /*
@@ -132,7 +133,6 @@ public class CarRepositoryIT {
   }
 
   @Test
-  @Ignore("fails due to missing all view")
   public void deleteAllTest() {
 
     /*
@@ -156,7 +156,6 @@ public class CarRepositoryIT {
   }
 
   @Test
-  // @Ignore
   public void deleteSingleCarTest() {
 
     /*
